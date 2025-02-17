@@ -1,23 +1,16 @@
 import React from "react";
-import { useState } from "react";
 
-function Input({ type, placeholder, name, required }) {
-  const [options, setOptions] = useState([
-    "Motor",
-    "Car",
-    "Truck",
-    "Bus",
-    "Bike",
-  ]);
+function Input({ type, placeholder, name, value, onChange }) {
+  const options = ["Motor", "Car", "Truck", "Bus", "Bike"];
 
   return (
-    <>
+    <div>
       {type === "select" ? (
         <>
           <label htmlFor={name}>{placeholder}</label>
-          <select name={name} required={required}>
-            {options.map((option, index) => (
-              <option key={index} value={option}>
+          <select name={name} value={value} onChange={onChange} required>
+            {options.map((option) => (
+              <option key={option} value={option}>
                 {option}
               </option>
             ))}
@@ -31,11 +24,13 @@ function Input({ type, placeholder, name, required }) {
             id={name}
             placeholder={placeholder}
             name={name}
-            required={required}
+            value={value}
+            onChange={onChange}
+            required
           />
         </>
       )}
-    </>
+    </div>
   );
 }
 
