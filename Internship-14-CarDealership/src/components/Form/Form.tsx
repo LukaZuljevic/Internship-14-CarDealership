@@ -9,7 +9,7 @@ function Form() {
   const [carData, setCarData] = useState({
     brand: "",
     model: "",
-    type: "Car",
+    type: "",
     year: "",
     expiration: "",
   });
@@ -36,6 +36,14 @@ function Form() {
     cars.push(carWithId);
     localStorage.setItem("cars", JSON.stringify(cars));
 
+    setCarData({
+      brand: "",
+      model: "",
+      type: "",
+      year: "",
+      expiration: "",
+    });
+
     toast.success("Car added successfully");
   };
 
@@ -60,8 +68,8 @@ function Form() {
   };
 
   return (
-    <>
-      <button onClick={toggleFormVisibility}>
+    <div className="form-container">
+      <button className="form-button" onClick={toggleFormVisibility}>
         {isVisible ? "Hide Form" : "Show Form"}
       </button>
       {isVisible && (
@@ -105,7 +113,7 @@ function Form() {
           <Toaster />
         </form>
       )}
-    </>
+    </div>
   );
 }
 

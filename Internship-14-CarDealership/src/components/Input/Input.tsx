@@ -1,4 +1,5 @@
 import React from "react";
+import "./Input.css";
 
 function Input({ type, placeholder, name, value, onChange }) {
   const options = ["Motor", "Car", "Truck", "Bus", "Bike"];
@@ -8,7 +9,16 @@ function Input({ type, placeholder, name, value, onChange }) {
       {type === "select" ? (
         <>
           <label htmlFor={name}>{placeholder}</label>
-          <select name={name} value={value} onChange={onChange} required>
+          <select
+            className="form-input"
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+          >
+            <option value="" disabled>
+              Select a category
+            </option>
             {options.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -20,6 +30,7 @@ function Input({ type, placeholder, name, value, onChange }) {
         <>
           <label htmlFor={name}>{placeholder}</label>
           <input
+            className="form-input"
             type={type}
             id={name}
             placeholder={placeholder}
