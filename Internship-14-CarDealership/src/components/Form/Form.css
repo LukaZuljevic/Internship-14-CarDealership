@@ -1,0 +1,8 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input, .form select{
+  margin-bottom: 20px;
+}
