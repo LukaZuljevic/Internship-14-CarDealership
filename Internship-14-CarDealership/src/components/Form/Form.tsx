@@ -13,7 +13,6 @@ function Form() {
     year: "",
     expiration: "",
   });
-
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleFormVisibility = () => setIsVisible(!isVisible);

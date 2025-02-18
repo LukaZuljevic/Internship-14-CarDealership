@@ -1,0 +1,23 @@
+.car-card {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    width: 320px;
+    border: 1px solid #ddd;
+  }
+  
+  .car-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .car-info {
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  .car-info span {
+    font-weight: bold;
+  }
