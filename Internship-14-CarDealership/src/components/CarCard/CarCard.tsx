@@ -10,8 +10,13 @@ function CarCard({ car, carList, setCarList }) {
     setCarList(filteredCarList);
   };
 
+  const currentDate = new Date();
+  const isExpiring =
+    new Date(car.expiration) <
+    new Date(currentDate.setMonth(currentDate.getMonth() + 1));
+
   return (
-    <div className="car-card">
+    <div className={`car-card ${isExpiring ? "expiring-soon" : ""}`}>
       <h1 className="car-title">{carName}</h1>
       <p className="car-info">
         Type: <span>{car.type}</span>

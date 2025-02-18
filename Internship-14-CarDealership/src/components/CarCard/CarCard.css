@@ -41,3 +41,7 @@
   background-color: rgb(211, 47, 47);
   transform: scale(1.05);
 }
+
+.expiring-soon {
+  border: 2px solid red;
+}
