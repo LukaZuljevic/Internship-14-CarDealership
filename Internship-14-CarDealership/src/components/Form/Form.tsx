@@ -13,7 +13,7 @@ function Form() {
     year: "",
     expiration: "",
   });
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const toggleFormVisibility = () => setIsVisible(!isVisible);
 
@@ -21,6 +21,7 @@ function Form() {
     setCarData({ ...carData, [e.target.name]: e.target.value });
 
   const handleFormSubmit = (e) => {
+    console.log(e);
     e.preventDefault();
 
     const error = validateForm();
@@ -59,9 +60,8 @@ function Form() {
     if (carData.brand.length > 20 || carData.model.length > 20)
       return "Brand and model inputs must be at most 20 characters long";
 
-    const storedCars = localStorage.getItem("cars");
-    if (storedCars && JSON.parse(storedCars).length >= 10)
-      return "You can't add more than 10 cars";
+    const storedCars = JSON.parse(localStorage.getItem("cars") || "[]");
+    if (storedCars.length >= 10) return "You can't add more than 10 cars";
 
     return null;
   };
@@ -69,7 +69,7 @@ function Form() {
   return (
     <div className="form-container">
       <button className="form-button" onClick={toggleFormVisibility}>
-        {isVisible ? "Hide Form" : "Show Form"}
+        {isVisible ? "Hide form" : "Show form"}
       </button>
       {isVisible && (
         <form className="form" onSubmit={handleFormSubmit}>

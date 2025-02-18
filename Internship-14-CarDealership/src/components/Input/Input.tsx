@@ -5,7 +5,7 @@ function Input({ type, placeholder, name, value, onChange }) {
   const options = ["Motor", "Car", "Truck", "Bus", "Bike"];
 
   return (
-    <div>
+    <div className="input-container">
       {type === "select" ? (
         <>
           <label htmlFor={name}>{placeholder}</label>

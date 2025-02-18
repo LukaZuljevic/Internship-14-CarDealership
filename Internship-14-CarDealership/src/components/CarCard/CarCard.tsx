@@ -1,8 +1,14 @@
 import React from "react";
 import "./CarCard.css";
 
-function CarCard({ car }) {
+function CarCard({ car, carList, setCarList }) {
   const carName = car.brand.concat(" ", car.model);
+
+  const handleRemoveClick = () => {
+    const filteredCarList = carList.filter((c) => c.id != car.id);
+    localStorage.setItem("cars", JSON.stringify(filteredCarList));
+    setCarList(filteredCarList);
+  };
 
   return (
     <div className="car-card">
@@ -17,7 +23,9 @@ function CarCard({ car }) {
         Expiration: <span>{car.expiration}</span>
       </p>
 
-      <button className="remove-car-button">Remove</button>
+      <button className="remove-car-button" onClick={handleRemoveClick}>
+        Remove
+      </button>
     </div>
   );
 }

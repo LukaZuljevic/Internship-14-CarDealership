@@ -1,23 +1,43 @@
 .car-card {
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    width: 320px;
-    border: 1px solid #ddd;
-  }
-  
-  .car-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .car-info {
-    color: #666;
-    margin-top: 8px;
-  }
-  
-  .car-info span {
-    font-weight: bold;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(253, 253, 253, 0.762);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+.car-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.car-info {
+  color: rgb(110, 110, 110);
+  margin-top: 8px;
+}
+
+.car-info span {
+  font-weight: bold;
+}
+
+.remove-car-button {
+  width: 50%;
+  margin: 0 auto;
+  padding: 6px 8px;
+  border: none;
+  background-color: rgba(155, 10, 0, 0.986);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid rgba(126, 126, 126, 0.274);
+}
+
+.remove-car-button:hover {
+  cursor: pointer;
+  background-color: rgb(211, 47, 47);
+  transform: scale(1.05);
+}

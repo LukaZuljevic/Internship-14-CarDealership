@@ -11,7 +11,12 @@ function CarList() {
   return (
     <div className="list-container">
       {carList.map((car) => (
-        <CarCard key={car.id} car={car} />
+        <CarCard
+          key={car.id}
+          car={car}
+          carList={carList}
+          setCarList={setCarList}
+        />
       ))}
     </div>
   );
