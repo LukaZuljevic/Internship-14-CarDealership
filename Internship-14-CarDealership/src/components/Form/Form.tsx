@@ -5,7 +5,7 @@ import Input from "../input/input";
 import toast, { Toaster } from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
 
-function Form() {
+function Form({ setCarList }) {
   const [carData, setCarData] = useState({
     brand: "",
     model: "",
@@ -21,7 +21,6 @@ function Form() {
     setCarData({ ...carData, [e.target.name]: e.target.value });
 
   const handleFormSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
 
     const error = validateForm();
@@ -32,9 +31,7 @@ function Form() {
 
     const carWithId = { ...carData, id: uuidv4() };
 
-    const cars = JSON.parse(localStorage.getItem("cars") || "[]");
-    cars.push(carWithId);
-    localStorage.setItem("cars", JSON.stringify(cars));
+    setCarList((prevCars) => [...prevCars, carWithId]);
 
     setCarData({
       brand: "",
