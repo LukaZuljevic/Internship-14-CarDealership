@@ -1,4 +1,5 @@
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 import "./CarCard.css";
 
 function CarCard({ car, carList, setCarList }) {
@@ -8,6 +9,8 @@ function CarCard({ car, carList, setCarList }) {
     const filteredCarList = carList.filter((c) => c.id != car.id);
     localStorage.setItem("cars", JSON.stringify(filteredCarList));
     setCarList(filteredCarList);
+
+    toast.success("Successdully removed a car!");
   };
 
   const currentDate = new Date();
@@ -31,6 +34,7 @@ function CarCard({ car, carList, setCarList }) {
       <button className="remove-car-button" onClick={handleRemoveClick}>
         Remove
       </button>
+      <Toaster />
     </div>
   );
 }
