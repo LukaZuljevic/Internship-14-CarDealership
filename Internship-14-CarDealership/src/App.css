@@ -13,7 +13,7 @@
 .main {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(to right, rgb(60, 62, 65), rgb(25, 26, 27));
+  background: linear-gradient(to right, rgb(2, 51, 124), rgb(176, 197, 218));
 }
 
 .form-and-filter {
@@ -23,4 +23,5 @@
   align-items: center;
   gap: 0px;
   padding: 32px;
+  justify-content: center;
 }
