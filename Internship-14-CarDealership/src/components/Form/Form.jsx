@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Form.css";
-import Input from "../input/input";
+import Input from "../Input/Input";
 import toast, { Toaster } from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,9 +13,6 @@ function Form({ setCarList }) {
     year: "",
     expiration: "",
   });
-  const [isVisible, setIsVisible] = useState(true);
-
-  const toggleFormVisibility = () => setIsVisible(!isVisible);
 
   const handleInputChange = (e) =>
     setCarData({ ...carData, [e.target.name]: e.target.value });
@@ -65,50 +62,45 @@ function Form({ setCarList }) {
 
   return (
     <div className="form-container">
-      <button className="form-button" onClick={toggleFormVisibility}>
-        {isVisible ? "Hide form" : "Show form"}
-      </button>
-      {isVisible && (
-        <form className="form" onSubmit={handleFormSubmit}>
-          <Input
-            type="text"
-            placeholder="Car brand"
-            name="brand"
-            value={carData.brand}
-            onChange={handleInputChange}
-          />
-          <Input
-            type="text"
-            placeholder="Car model"
-            name="model"
-            value={carData.model}
-            onChange={handleInputChange}
-          />
-          <Input
-            type="select"
-            placeholder="Car type"
-            name="type"
-            value={carData.type}
-            onChange={handleInputChange}
-          />
-          <Input
-            type="number"
-            placeholder="Year of production(1960-2025)"
-            name="year"
-            value={carData.year}
-            onChange={handleInputChange}
-          />
-          <Input
-            type="date"
-            placeholder="Date of registration expiration"
-            name="expiration"
-            value={carData.expiration}
-            onChange={handleInputChange}
-          />
-          <button type="submit">Add</button>
-          <Toaster />
-        </form>
-      )}
+      <form className="form" onSubmit={handleFormSubmit}>
+        <Input
+          type="text"
+          placeholder="Car brand"
+          name="brand"
+          value={carData.brand}
+          onChange={handleInputChange}
+        />
+        <Input
+          type="text"
+          placeholder="Car model"
+          name="model"
+          value={carData.model}
+          onChange={handleInputChange}
+        />
+        <Input
+          type="select"
+          placeholder="Car type"
+          name="type"
+          value={carData.type}
+          onChange={handleInputChange}
+        />
+        <Input
+          type="number"
+          placeholder="Year of production(1960-2025)"
+          name="year"
+          value={carData.year}
+          onChange={handleInputChange}
+        />
+        <Input
+          type="date"
+          placeholder="Date of registration expiration"
+          name="expiration"
+          value={carData.expiration}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Add</button>
+        <Toaster />
+      </form>
     </div>
   );
 }

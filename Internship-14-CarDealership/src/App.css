@@ -9,3 +9,12 @@
   min-height: 100vh;
   background: linear-gradient(to right, rgb(209, 232, 255), rgb(182, 220, 255));
 }
+
+.form-and-filter {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+}
