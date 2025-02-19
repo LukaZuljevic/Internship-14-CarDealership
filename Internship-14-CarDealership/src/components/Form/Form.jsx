@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Form.css";
 import Input from "../Input/Input";
 import toast, { Toaster } from "react-hot-toast";
@@ -61,47 +60,45 @@ function Form({ setCarList }) {
   };
 
   return (
-    <div className="form-container">
-      <form className="form" onSubmit={handleFormSubmit}>
-        <Input
-          type="text"
-          placeholder="Car brand"
-          name="brand"
-          value={carData.brand}
-          onChange={handleInputChange}
-        />
-        <Input
-          type="text"
-          placeholder="Car model"
-          name="model"
-          value={carData.model}
-          onChange={handleInputChange}
-        />
-        <Input
-          type="select"
-          placeholder="Car type"
-          name="type"
-          value={carData.type}
-          onChange={handleInputChange}
-        />
-        <Input
-          type="number"
-          placeholder="Year of production(1960-2025)"
-          name="year"
-          value={carData.year}
-          onChange={handleInputChange}
-        />
-        <Input
-          type="date"
-          placeholder="Date of registration expiration"
-          name="expiration"
-          value={carData.expiration}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Add</button>
-        <Toaster />
-      </form>
-    </div>
+    <form className="form" onSubmit={handleFormSubmit}>
+      <Input
+        type="text"
+        placeholder="Car brand"
+        name="brand"
+        value={carData.brand}
+        onChange={handleInputChange}
+      />
+      <Input
+        type="text"
+        placeholder="Car model"
+        name="model"
+        value={carData.model}
+        onChange={handleInputChange}
+      />
+      <Input
+        type="select"
+        placeholder="Car type"
+        name="type"
+        value={carData.type}
+        onChange={handleInputChange}
+      />
+      <Input
+        type="number"
+        placeholder="Year of production (1960 - 2025)"
+        name="year"
+        value={carData.year}
+        onChange={handleInputChange}
+      />
+      <Input
+        type="date"
+        placeholder="Date of registration expiration"
+        name="expiration"
+        value={carData.expiration}
+        onChange={handleInputChange}
+      />
+      <button type="submit">Add</button>
+      <Toaster />
+    </form>
   );
 }
 

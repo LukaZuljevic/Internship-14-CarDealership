@@ -4,6 +4,7 @@ import "./Filter.css";
 
 function Filter({ carList, setFilteredCarList }) {
   const [carName, setCarName] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleFilterChange = (e) => {
     const inputValue = e.target.value.toLowerCase();
@@ -18,15 +19,25 @@ function Filter({ carList, setFilteredCarList }) {
   };
 
   return (
-    <div className="filter">
-      <Input
-        type="text"
-        placeholder="Filter by car name(brand + model)"
-        name="filter"
-        value={carName}
-        onChange={handleFilterChange}
-      />
-    </div>
+    <>
+      <button
+        className="show-filter-button"
+        onClick={() => setIsVisible(!isVisible)}
+      >
+        {isVisible ? "Hide filter" : "Show filter"}
+      </button>
+      {isVisible ? (
+        <div className="filter">
+          <Input
+            type="text"
+            placeholder="Filter by car name (brand + model)"
+            name="filter"
+            value={carName}
+            onChange={handleFilterChange}
+          />
+        </div>
+      ) : null}
+    </>
   );
 }
 
